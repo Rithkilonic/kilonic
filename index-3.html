@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kilonic Order Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #555;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Kilonic Order Form</h2>
+    <form id="orderForm">
+      <label for="name">1. Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">2. Phone Number</label>
+      <input type="text" id="phone" name="phone" required>
+
+      <label for="address">3. Address</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="size">4. Product Size</label>
+      <select id="size" name="size" required>
+        <option value="">Select a size</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+      </select>
+
+      <label for="note">5. Note</label>
+      <textarea id="note" name="note" rows="3"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = encodeURIComponent(document.getElementById("name").value);
+      const phone = encodeURIComponent(document.getElementById("phone").value);
+      const address = encodeURIComponent(document.getElementById("address").value);
+      const size = encodeURIComponent(document.getElementById("size").value);
+      const note = encodeURIComponent(document.getElementById("note").value);
+
+      // Redirect to Google Form
+      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScmSWWmHwEWv0wSeD85-_WztoyK_LCW7F9Z09rhDEF-y02KhA/viewform";
+      window.location.href = formUrl;
+    });
+  </script>
+</body>
+</html>
